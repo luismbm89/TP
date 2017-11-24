@@ -97,7 +97,11 @@ namespace slnPartes
                 oEnviar.asunto = txtAsunto.Text;
                 oEnviar.mensaje = txtMensaje.Text;
                 oEnviar.remitente = txtCorreo.Text;
-                ltlMensaje.Text = oEnviar.EnviarEmail();
+
+                string disennoMensajeI = "<div class='alert alert-warning alert - dismissable fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+                string mensaje = "Error al cargar las Categorias";
+                string disennoMensajeF = "</div>";
+                ltlMensaje.Text = disennoMensajeI + oEnviar.EnviarEmail() + disennoMensajeF;
                 ltlMensaje.Visible = true;
             }
             else
