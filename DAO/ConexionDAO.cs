@@ -18,11 +18,17 @@ namespace DAO
         public String BaseDatos { set; get; }
 
         private ConexionDAO()
-        {
+        {/*
             Usuario = "sa";
             Clave = "123456"; //123456 - dbCai2017
             Servidor = "localhost";
             BaseDatos = "ticopartdb";
+            */
+
+            Usuario = "ticopartdb1";
+            Clave = "Tb1Zy9xCU~g-"; //123456 - dbCai2017
+            Servidor = "mssql5.gear.host";
+            BaseDatos = "ticopartdb1";
         }
 
         public static ConexionDAO getInstance()

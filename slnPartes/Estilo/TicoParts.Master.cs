@@ -13,24 +13,89 @@ namespace slnPartes.Estilo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!Page.IsPostBack){
+            if (Session["user"] != null)
+            {
+                    liPerfil.Visible = true;
+                lblIniciar.Text = Session["user"].ToString().ToUpper();
+                btnIniciar.Text = "Finalizar";
+                switch (Session["Rol"].ToString())
+                {
+                    case "1":
+                        Inicio.Visible = true;
+                        Partes.Visible = true;
+                        Proveedores.Visible = true;
+                        Contactenos.Visible = true;
+                        Proveedor.Visible = true;
+                        break;
+                    case "2":
+                        Inicio.Visible = true;
+                        Partes.Visible = true;
+                        Proveedores.Visible = true;
+                        Contactenos.Visible = true;
+                        Proveedor.Visible = true;
+                        break;
+                    case "3":
+                        Inicio.Visible = true;
+                        Partes.Visible = true;
+                        Proveedores.Visible = true;
+                        Contactenos.Visible = true;
+                        Proveedor.Visible = false;
+                        break;
+                
+                }
+                user.Text = Session["user"].ToString().ToUpper();
+                pass.Enabled = false;
+            }
+            else
+            {
+                lblIniciar.Text = "Iniciar Sesión";
+                btnIniciar.Text = "Iniciar";
+                user.Text = "";
+                pass.Enabled = true;
+                Inicio.Visible = true;
+                Partes.Visible = true;
+                Proveedores.Visible = true;
+                Contactenos.Visible = true;
+                Proveedor.Visible = false;
+            }}
         }
 
         protected void IniciarSesion(object sender, EventArgs e)
         {
-            Usuario usr = new Usuario();
-            usr.Usuario1 = user.Text;
-            usr.Contrasenna = pass.Text;
-            if (UsuarioBLL.Validar(usr.Usuario1, usr.Contrasenna)) {
-                btnIniciar.Text = "Sesion Iniciada";
+            Button btn = (Button)sender;
+            switch (btn.Text)
+            {
+                case "Iniciar":
+                    if (UsuarioBLL.Validar(user.Text, pass.Text).Equals("1"))
+                    {
+                        Session["user"] = user.Text;
+                        Session["Rol"] = UsuarioBLL.Rol(user.Text);
+                        Session["idProveedor"] = UsuarioBLL.Proveedor(user.Text);
+                        Response.Redirect("~/index.aspx");
                     }
+                    else
+                    {
+                        hdnCheck.Value = "wrong";
+                    }
+                    break;
+                case "Finalizar":
+                    Session.Abandon();
+                    Session.RemoveAll();
+                Response.Redirect("~/index.aspx");
+                    break;
+            }
 
         }
-    
+
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
 
+        }
+        protected void Perfil(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Perfil.aspx");
         }
     }
 }

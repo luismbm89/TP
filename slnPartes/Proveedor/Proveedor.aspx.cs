@@ -22,10 +22,30 @@ namespace slnPartes.Proveedor
         {
             if (!IsPostBack)
             {
-                Session["idProveedor"] = "9";
+                string id = Request.QueryString["id"];
+                if (id == "2") {
+                    string disennoMensajeI = "<div class='alert alert-success alert - dismissable fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+                    string mensaje = "Mensaje Enviado correctamente";
+                    string disennoMensajeF = "</div>";
+                    ltlMensaje.Text = disennoMensajeI + mensaje + disennoMensajeF;
+                    ltlMensaje.Visible = true;
+                    MultiView1.ActiveViewIndex = 2;
+                    this.Menu1.Items[2].Selected = true;
+                    Response.AppendHeader("Refresh", "2;url=../Proveedor/Proveedor.aspx");
+                }
+                else
+                {
+                    ltlMensaje.Visible = false;
+                }
                 Page.Form.Attributes.Add("enctype", "multipart/form-data");
                 MultiView1.ActiveViewIndex = 0;
                 //CargarDatosProveedor();
+
+                llenarComboProvincia(ddlProvincia);
+                llenarComboTipoProveedor();
+                llenarComboTipoTelefono();
+                CargarDatosProveedor();
+                this.Menu1.Items[0].Selected = true;
             }
         }
 
@@ -786,8 +806,7 @@ namespace slnPartes.Proveedor
         protected void grvCotizaciones_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
-            GridViewRow rowV = grvCotizaciones.Rows[index];
-
+            int id = Convert.ToInt32(grvCotizaciones.DataKeys[index].Values[0]);
             try
             {
                 if (e.CommandName == "contestar")
@@ -797,7 +816,7 @@ namespace slnPartes.Proveedor
                     sb.Append("$(function () {");
                     sb.Append(" $('#modalCotizacion').modal('show');});");
                     sb.Append("</script>");
-                    llenarModalCotizacion();
+                    llenarModalCotizacion(Convert.ToInt32(id));
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ModelScript", sb.ToString(), false);
                 }
             }
@@ -808,11 +827,27 @@ namespace slnPartes.Proveedor
             }
         }
 
-        private void llenarModalCotizacion()
+        private void llenarModalCotizacion(int idCotizacion)
         {
             try
             {
-
+                int idUsuario = 0;
+                foreach (DataRow row in CotizacionBLL.obtenerInfoCotizacion(idCotizacion).Rows)
+                {
+                    
+                    txtCOT_Marca.Text = row["Marca"].ToString();
+                    txtCOT_Modelo.Text = row["Modelo"].ToString();
+                    txtCOT_Anno.Text = row["año"].ToString();
+                    txtCOT_Descripcion.Text = row["descripcion"].ToString();
+                    txtCOT_OtrosDatos.Text = row["otrosDatos"].ToString();
+                    idUsuario = Convert.ToInt32(row["idUsuario"].ToString());
+                }
+                foreach (DataRow row in CotizacionBLL.obtenerInfoUsuarioCoti(idUsuario).Rows)
+                {
+                    txtCOT_Nombre.Text = row["Nombre"].ToString();
+                    txtCOT_Email.Text = row["correo"].ToString();
+                    txtCOT_Telefono.Text = row["Telefono"].ToString();
+                }
             }
             catch (Exception)
             {
@@ -822,6 +857,23 @@ namespace slnPartes.Proveedor
                 ltlMensaje.Text = disennoMensajeI + mensaje + disennoMensajeF;
                 ltlMensaje.Visible = true;
             }
+        }
+
+        protected void grvCotizaciones_DataBound(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnEnviarCot_Click(object sender, EventArgs e)
+        {
+            EnviarCorreo oCorreo = new EnviarCorreo();
+            oCorreo.remitente = txtEmail.Text;
+            oCorreo.asunto = "Respuesta a Cotización";
+            oCorreo.destinatario = txtCOT_Email.Text;
+            oCorreo.mensaje = "El proveedor a contestado su solicitud: " + txtCOT_Mensaje.Text;
+            ltlMensaje.Text = oCorreo.EnviarEmail();
+            ltlMensaje.Visible = true;
+            Response.Redirect("../Proveedor/Proveedor.aspx?id=2");
         }
 
 

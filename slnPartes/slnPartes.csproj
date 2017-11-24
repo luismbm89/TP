@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,6 +76,9 @@
     <Content Include="Estilo\js\bootstrap.min.js" />
     <Content Include="Estilo\js\npm.js" />
     <Content Include="Imagenes\delete.png" />
+    <Content Include="Imagenes\Diseno\LUJO.png" />
+    <Content Include="Imagenes\Diseno\toyosan.png" />
+    <Content Include="Imagenes\Diseno\TP.png" />
     <Content Include="Imagenes\Diseno\tpFondo.png" />
     <Content Include="Imagenes\Diseno\tpImagenOverlay.png" />
     <Content Include="Imagenes\Partes\2\cabezote.jpg" />
@@ -102,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="partes.aspx" />
+    <Content Include="Perfil.aspx" />
     <Content Include="Proveedor\Proveedor.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -127,6 +132,13 @@
     </Compile>
     <Compile Include="partes.aspx.designer.cs">
       <DependentUpon>partes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedor\Proveedor.aspx.cs">

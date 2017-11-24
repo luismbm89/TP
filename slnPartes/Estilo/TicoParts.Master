@@ -29,6 +29,16 @@
             document.getElementById('user').focus();
         }
     </script>
+    <script type="text/javascript">
+        $(function () {
+
+            var iswrongcredential = $('#hdnCheck').val() == 'wrong';
+            if (iswrongcredential) {
+                $('#user ,#pass').effect('shake');
+            }
+
+        });
+    </script>
     <title>TicoParts</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -51,18 +61,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">TicoParts.co.cr</a>
+                        <a class="navbar-brand" href="../index.aspx">TicoParts.co.cr</a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                            <li><a href="../index.aspx">Inicio</a></li>
-                            <li><a href="../partes.aspx">Partes</a></li>
-                            <li><a href="#">Proveedores</a></li>
-                            <li><a href="#">Contactenos</a></li>
-                            <li><a href="../Proveedor/Proveedor.aspx">Proveedor</a></li>
+                            <li id="Inicio" runat="server"><a href="../index.aspx">Inicio</a></li>
+                            <li id="Partes" runat="server"><a href="../partes.aspx">Partes</a></li>
+                            <li id="Proveedores" runat="server"><a href="#">Proveedores</a></li>
+                            <li id="Contactenos" runat="server"><a href="#">Contactenos</a></li>
+                            <li id="Proveedor" runat="server"><a href="../Proveedor/Proveedor.aspx">Proveedor</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a onclick="EjemploMetodo()"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
+                            <li id="liPerfil" runat="server" visible="false"><asp:LinkButton runat="server"  ID="lnkPerfil" OnClick="Perfil" Text=""> <span class="glyphicon glyphicon-user"></span> </asp:LinkButton></li>
+                            <li><a onclick="EjemploMetodo()"><span class="glyphicon glyphicon-log-in"></span> <asp:Label ID="lblIniciar" runat="server" Text="Iniciar Sesión"></asp:Label></a></li>
                         </ul>
                     </div>
                 </div>
@@ -81,19 +92,17 @@
         <div class="modal-body">
                 <div class="form-group">
                     <label for="email">Usuario:</label>
-                    <asp:TextBox type="email" class="form-control" id="user" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" class="form-control" id="user" runat="server"></asp:TextBox>
                 </div>
                     <div class="form-group">
                     <label for="pwd">Password:</label>
                     <asp:TextBox type="password" class="form-control" id="pass" runat="server"></asp:TextBox>
+        <asp:HiddenField ID="hdnCheck" runat="server" />
                 </div>
                 <div class="checkbox">
                      <label><input type="checkbox"/> Remember me</label>
                 </div>
             <asp:Button type="submit" CssClass="btn btn-default" ID="btnIniciar" OnClick="IniciarSesion" runat="server" Text="Iniciar" />
-        </div>
-        <div class="modal-footer">
-          <asp:Button  type="button" class="btn btn-default" data-dismiss="modal" ID="btnCancelar" Text="Cerrar" runat="server" OnClick="btnCancelar_Click"/>
         </div>
       </div>
     </div>

@@ -25,9 +25,10 @@
                                         <nav class="col-sm-3">
                                             <asp:Menu ID="Menu1" Width="168px" runat="server" OnMenuItemClick="Menu1_MenuItemClick">
                                                 <Items>
-                                                    <asp:MenuItem Text="Empresa" Value="0"></asp:MenuItem>
+                                                    <asp:MenuItem  Text="Empresa" Value="0"></asp:MenuItem>
                                                     <asp:MenuItem Text="Partes" Value="1"></asp:MenuItem>
                                                     <asp:MenuItem Text="Cotizaciones" Value="2"></asp:MenuItem>
+                                                    <asp:MenuItem Text="Registro Usuario" Value="3"></asp:MenuItem>
                                                 </Items>
                                                 <StaticMenuItemStyle CssClass="nav nav-pills nav-stacked" />
                                                 <StaticMenuStyle CssClass="nav nav-pills nav-stacked" />
@@ -320,7 +321,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="col-sm-12" style="overflow: auto; height: 25vh;">
-                                                    <asp:GridView ID="grvCotizaciones" runat="server" CssClass="table table-responsive table-hover" AutoGenerateColumns="false" OnRowCommand="grvCotizaciones_RowCommand">
+                                                    <asp:GridView ID="grvCotizaciones" runat="server" DataKeyNames="idCotizacion" CssClass="table table-responsive table-hover" AutoGenerateColumns="false" OnRowCommand="grvCotizaciones_RowCommand" OnDataBound="grvCotizaciones_DataBound">
                                                         <HeaderStyle BackColor="#00507a" ForeColor="White" />
                                                         <Columns>
                                                             <asp:BoundField DataField="idCotizacion" HeaderText="ID Cotizacion" Visible="false"></asp:BoundField>
@@ -344,6 +345,24 @@
                                         </div>
                                     </div>
                                 </div>
+                            </asp:View>
+                            <asp:View ID="tabUsuarios" runat="server">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="background-color: #00507a; color: white;">Registro de Usuarios</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Dirección:</label>
+                                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                             </asp:View>
                         </asp:MultiView>
                     </div>
@@ -458,7 +477,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
-                                                        <asp:Button ID="btnEnviarCot" runat="server" Text="Enviar" CssClass="btn btn-primary" />
+                                                        <asp:Button ID="btnEnviarCot" runat="server" Text="Enviar" CssClass="btn btn-primary" OnClick="btnEnviarCot_Click" />
                                                     </div>
                                                 </div>
                                             </div>

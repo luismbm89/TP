@@ -21,6 +21,7 @@ namespace slnPartes
                 llenarComboMarca();
                 llenarComboProvincia();
                 llenarDtlParte();
+                llenarComboParte();
             }
         }
 
@@ -197,16 +198,31 @@ namespace slnPartes
             aplicarFiltro();
         }
 
-        private void llenarComboModelo()
+        private void llenarComboParte()
         {
             try
             {
-                ddlModelo.Items.Clear();
-                ddlModelo.DataSource = VehiculoBLL.obtenerModelo(Convert.ToInt32(ddlMarca.SelectedValue));
-                ddlModelo.DataTextField = "Modelo";
-                ddlModelo.DataValueField = "idModelo";
-                ddlModelo.DataBind();
-                ddlModelo.Items.Insert(0, "-- Todos --");
+                ddlParte.DataSource = ParteBLL.obtenerListaPartes();
+                ddlParte.DataTextField = "parte";
+                ddlParte.DataValueField = "idParte";
+                ddlParte.DataBind();
+                ddlParte.Items.Insert(0, "Seleccione una parte");
+            }
+            catch (Exception) { }
+            }
+                private void llenarComboModelo()
+        {
+            try
+            {
+                if (ddlMarca.SelectedIndex > 0)
+                {
+                    ddlModelo.Items.Clear();
+                    ddlModelo.DataSource = VehiculoBLL.obtenerModelo(Convert.ToInt32(ddlMarca.SelectedValue));
+                    ddlModelo.DataTextField = "Modelo";
+                    ddlModelo.DataValueField = "idModelo";
+                    ddlModelo.DataBind();
+                    ddlModelo.Items.Insert(0, "-- Todos --");
+                }
             }
             catch (Exception)
             {
@@ -259,34 +275,84 @@ namespace slnPartes
 
         private void aplicarFiltro()
         {
+            int f1=0, f2 = 0, f3 = 0, f4 = 0, f5 = 0, f6 = 0;
             try
             {
                 DataView dv = new DataView(ParteBLL.obtenerParte());
                 if (ddlAnno.SelectedIndex > 0)
                 {
-                    dv.RowFilter = String.Format("anno like '%{0}%'", ddlAnno.SelectedItem.Text);
+                    f1 = 1;
                 }
 
                 if (ddlMarca.SelectedIndex > 0)
                 {
-                    dv.RowFilter = String.Format("Marca like'%{0}%'", ddlMarca.SelectedValue);
+                    f2 = 1;
                 }
 
                 if (ddlModelo.SelectedIndex > 0)
                 {
-                    dv.RowFilter = String.Format("Modelo like'%{0}%'", ddlModelo.SelectedItem.Text);
+                    f3 = 1;
                 }
 
                 if (ddlProvincia.SelectedIndex > 0)
                 {
-                    dv.RowFilter = String.Format("provincia like'%{0}%'", ddlProvincia.SelectedItem.Text);
+                    f4 = 1;
+                }
+                if (ddlParte.SelectedIndex > 0)
+                {
+                    f5 = 1;
                 }
                 if (ddlCanton.SelectedIndex > 0)
                 {
-                    dv.RowFilter = String.Format("Canton like'%{0}%'", ddlCanton.SelectedItem.Text);
+                    f6 = 1;
+                }
+                StringBuilder filtro = new StringBuilder();
+                if (f1 > 0)
+                {
+                    filtro.Append(String.Format("anno like '%{0}%'", ddlAnno.SelectedItem.Text));
+                }
+                if (f2 > 0)
+                {
+                    if (filtro.Length > 0)
+                    {
+                        filtro.Append(" and ");
+                    }
+                    filtro.Append(String.Format("Marca like'%{0}%'", ddlMarca.SelectedValue));
+                }
+                if (f3 > 0)
+                {
+                    if (filtro.Length > 0)
+                    {
+                        filtro.Append(" and ");
+                    }
+                    filtro.Append(String.Format("Modelo like'%{0}%'", ddlModelo.SelectedItem.Text));
+                }
+                if (f4 > 0)
+                {
+                    if (filtro.Length > 0)
+                    {
+                        filtro.Append(" and ");
+                    }
+                    filtro.Append(String.Format("provincia like'%{0}%'", ddlProvincia.SelectedItem.Text));
+                }
+                if (f5 > 0)
+                {
+                    if (filtro.Length > 0)
+                    {
+                        filtro.Append(" and ");
+                    }
+                    filtro.Append(String.Format("idParte = {0}", ddlParte.SelectedValue));
+                }
+                if (f6 > 0)
+                {
+                    if (filtro.Length > 0)
+                    {
+                        filtro.Append(" and ");
+                    }
+                    filtro.Append(String.Format("Canton like'%{0}%'", ddlCanton.SelectedItem.Text));
                 }
 
-
+                dv.RowFilter = filtro.ToString();
                 dtlPartes.DataSource = dv;
                 dtlPartes.DataBind();
             }
@@ -395,6 +461,17 @@ namespace slnPartes
                 ltlMensaje.Visible = true;
             }
 
+        }
+
+        protected void ddlParte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            aplicarFiltro();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            aplicarFiltro();
         }
     }
 }

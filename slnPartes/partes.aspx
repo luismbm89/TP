@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Parte:</label>
-                                    <asp:DropDownList ID="ddlParte" runat="server" class="form-control"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlParte" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlParte_SelectedIndexChanged"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label>Provincia:</label>
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="panel-footer">
-                                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" />
+                                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
                                 <asp:Button ID="btnCancelar" runat="server" Text="Limpiar" CssClass="btn btn-warning" />
                             </div>
                         </div>

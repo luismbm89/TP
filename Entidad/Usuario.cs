@@ -3,7 +3,7 @@
     public class Usuario
     {
         private int idUsuario,Rol,Proveedor;
-        string usuario, contrasenna, nombre, Apellido1, Apellido2, correo, Telefono;
+        string usuario, contrasenna, nombre, Apellido1, Apellido2, correo, Telefono,ID;
         bool Estado;
 
         public int IdUsuario { get => idUsuario; set => idUsuario = value; }
@@ -17,12 +17,14 @@
         public string Correo { get => correo; set => correo = value; }
         public string Telefono1 { get => Telefono; set => Telefono = value; }
         public bool Estado1 { get => Estado; set => Estado = value; }
+        public string Identificacion { get => ID; set => ID = value; }
 
         public Usuario()
         {
             IdUsuario = 0;
             Rol1 = 0;
             Proveedor1 = 0;
+            Identificacion = "";
             Usuario1 = "";
             Contrasenna = "";
             Nombre = "";
@@ -33,13 +35,14 @@
             Estado1 = true;
         }
 
-        public Usuario(int ID,int Rol,int Proveedor,string usuario,string contrasenna,string Nombre,string Apellido1,string Apellido2,string correo,string Telefono,bool estado)
+        public Usuario(int ID,int Rol,int Proveedor,string usuario,string contrasenna,string Nombre,string Apellido1,string Apellido2,string correo,string Telefono,bool estado,string Identificacion1)
         {
             IdUsuario = ID;
             Rol1 = Rol;
             Proveedor1 = Proveedor;
             Usuario1 = usuario;
             Contrasenna = contrasenna;
+            Identificacion = Identificacion1;
             Nombre = nombre;
             Apellido11 = Apellido1;
             Apellido21 = Apellido2;
