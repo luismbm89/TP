@@ -44,9 +44,30 @@ namespace slnPartes
                 ltlMensaje.Visible = true;
             }
         }
+        private void llenarComboTS()
+        {
+            try
+            {
+                ddlTS.Items.Clear();
+                ddlTS.DataSource = ProveedorBLL.obtenerTipoProveedor();
+                ddlTS.DataTextField = "provincia";
+                ddlTS.DataValueField = "idProvincia";
+                ddlTS.DataBind();
+                ddlTS.Items.Insert(0, "-- Todas --");
 
-        
-        
+            }
+            catch (Exception)
+            {
+                string disennoMensajeI = "<div class='alert alert-warning alert - dismissable fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+                string mensaje = "Error al cargar las Provincias";
+                string disennoMensajeF = "</div>";
+                ltlMensaje.Text = disennoMensajeI + mensaje + disennoMensajeF;
+                ltlMensaje.Visible = true;
+            }
+        }
+
+
+
         private void llenarDtlParte()
         {
             try
