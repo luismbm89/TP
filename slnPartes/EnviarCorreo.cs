@@ -40,6 +40,7 @@ namespace slnPartes
 
             //Direccion de correo electronico que queremos que reciba una copia del mensaje
             mmsg.Bcc.Add("ticopartscr@gmail.com"); //Opcional
+            mmsg.Bcc.Add(remitente);
 
             //Cuerpo del Mensaje
             mmsg.Body = "<IMG SRC='../Imagenes/tplogo1.png'> <h2>TicoParts.co.cr</h2>" + mensaje;
