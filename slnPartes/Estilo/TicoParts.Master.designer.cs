@@ -76,6 +76,15 @@ namespace slnPartes.Estilo {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Proveedor;
         
         /// <summary>
+        /// Control Administrador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Administrador;
+        
+        /// <summary>
         /// Control liPerfil.
         /// </summary>
         /// <remarks>

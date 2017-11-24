@@ -21,26 +21,29 @@ namespace slnPartes.Estilo
                 btnIniciar.Text = "Finalizar";
                 switch (Session["Rol"].ToString())
                 {
-                    case "1":
+                    case "1"://Administrador
                         Inicio.Visible = true;
                         Partes.Visible = true;
                         Proveedores.Visible = true;
                         Contactenos.Visible = true;
                         Proveedor.Visible = true;
-                        break;
-                    case "2":
+                        Administrador.Visible = true;
+                            break;
+                    case "2"://Proveedor
                         Inicio.Visible = true;
                         Partes.Visible = true;
                         Proveedores.Visible = true;
                         Contactenos.Visible = true;
                         Proveedor.Visible = true;
-                        break;
-                    case "3":
+                            Administrador.Visible = false;
+                            break;
+                    case "3"://Cliente
                         Inicio.Visible = true;
                         Partes.Visible = true;
                         Proveedores.Visible = true;
                         Contactenos.Visible = true;
                         Proveedor.Visible = false;
+                        Administrador.Visible = false;
                         break;
                 
                 }

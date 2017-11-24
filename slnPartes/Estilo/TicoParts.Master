@@ -70,6 +70,7 @@
                             <li id="Proveedores" runat="server"><a href="#">Proveedores</a></li>
                             <li id="Contactenos" runat="server"><a href="#">Contactenos</a></li>
                             <li id="Proveedor" runat="server"><a href="../Proveedor/Proveedor.aspx">Proveedor</a></li>
+                            <li id="Administrador" runat="server"><a href="../administrador.aspx">Administrador</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li id="liPerfil" runat="server" visible="false"><asp:LinkButton runat="server"  ID="lnkPerfil" OnClick="Perfil" Text=""> <span class="glyphicon glyphicon-user"></span> </asp:LinkButton></li>
