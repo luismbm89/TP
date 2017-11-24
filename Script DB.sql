@@ -50,6 +50,8 @@ drop view vw_InfoProveedorParte;end try begin catch end catch
 begin try
 drop view vw_InfoCotizaciones;end try begin catch end catch
 begin try
+drop view Vw_ListaProveedores;end try begin catch end catch
+begin try
 drop Procedure sp_GuardarParte;end try begin catch end catch
 begin try
 drop Procedure sp_GuardarImagen;end try begin catch end catch
@@ -82,7 +84,7 @@ insert into ModeloVehiculo values (1,1,'500'),(1,2,'Grande Punto'),(1,3,'Punto E
 insert into ModeloVehiculo values (60,735,'918'),(61,736,'Megane'),(61,737,'Safrane'),(61,738,'Laguna'),(61,739,'Clio'),(61,740,'Twingo'),(61,741,'Nevada'),(61,742,'Espace'),(61,743,'Spider'),(61,744,'Scenic'),(61,745,'Grand Espace'),(61,746,'Avantime'),(61,747,'Vel Satis'),(61,748,'Grand Scenic'),(61,749,'Clio Campus'),(61,750,'Modus'),(61,751,'Express'),(61,752,'Trafic'),(61,753,'Master'),(61,754,'Kangoo'),(61,755,'Mascott'),(61,756,'Master Propulsion'),(61,757,'Maxity'),(61,758,'R19'),(61,759,'R25'),(61,760,'R5'),(61,761,'R21'),(61,762,'R4'),(61,763,'Alpine'),(61,764,'Fuego'),(61,765,'R18'),(61,766,'R11'),(61,767,'R9'),(61,768,'R6'),(61,769,'Grand Modus'),(61,770,'Kangoo Combi'),(61,771,'Koleos'),(61,772,'Fluence'),(61,773,'Wind'),(61,774,'Latitude'),(61,775,'Grand Kangoo Combi'),(62,776,'Siver Dawn'),(62,777,'Silver Spur'),(62,778,'Park Ward'),(62,779,'Silver Seraph'),(62,780,'Corniche'),(62,781,'Phantom'),(62,782,'Touring'),(62,783,'Silvier'),(63,784,'800'),(63,785,'600'),(63,786,'100'),(63,787,'200'),(63,788,'Coupe'),(63,789,'400'),(63,790,'45'),(63,791,'Cabriolet'),(63,792,'25'),(63,793,'Mini'),(63,794,'75'),(63,795,'Streetwise'),(63,796,'Sd'),(64,797,'900'),(64,798,'93'),(64,799,'9000'),(64,800,'95'),(64,801,'93x'),(64,802,'94x'),(65,803,'300'),(65,804,'350'),(65,805,'Anibal'),(65,806,'Anibal Pick Up'),(66,807,'Ibiza'),(66,808,'Cordoba'),(66,809,'Toledo'),(66,810,'Marbella'),(66,811,'Alhambra'),(66,812,'Arosa'),(66,813,'Leon'),(66,814,'Altea'),(66,815,'Altea Xl'),(66,816,'Altea Freetrack'),(66,817,'Terra'),(66,818,'Inca'),(66,819,'Malaga'),(66,820,'Ronda'),(66,821,'Exeo'),(66,822,'Mii'),(67,823,'Felicia'),(67,824,'Forman'),(67,825,'Octavia'),(67,826,'Octavia Tour'),(67,827,'Fabia'),(67,828,'Superb'),(67,829,'Roomster'),(67,830,'Scout'),(67,831,'Pickup'),(67,832,'Favorit'),(67,833,'130'),(67,834,'S'),(67,835,'Yeti'),(67,836,'Citigo'),(67,837,'Rapid'),(68,838,'Smart'),(68,839,'Citycoupe'),(68,840,'Fortwo'),(68,841,'Cabrio'),(68,842,'Crossblade'),(68,843,'Roadster'),(68,844,'Forfour'),(69,845,'Korando'),(69,846,'Family'),(69,847,'K4d'),(69,848,'Musso'),(69,849,'Korando Kj'),(69,850,'Rexton'),(69,851,'Rexton Ii'),(69,852,'Rodius'),(69,853,'Kyron'),(69,854,'Actyon'),(69,855,'Sports Pick Up'),(69,856,'Actyon Sports Pick Up'),(69,857,'Kodando'),(70,858,'Legacy'),(70,859,'Impreza'),(70,860,'Svx'),(70,861,'Justy'),(70,862,'Outback'),(70,863,'Forester'),(70,864,'G3x Justy'),(70,865,'B9 Tribeca'),(70,866,'Xt'),(70,867,'1800'),(70,868,'Tribeca'),(70,869,'Wrx Sti'),(70,870,'Trezia'),(70,871,'Xv'),(70,872,'Brz'),(71,873,'Maruti'),(71,874,'Swift'),(71,875,'Vitara'),(71,876,'Baleno'),(71,877,'Samurai'),(71,878,'Alto'),(71,879,'Wagon R'),(71,880,'Jimny'),(71,881,'Grand Vitara'),(71,882,'Ignis'),(71,883,'Liana'),(71,884,'Grand Vitara Xl7'),(71,885,'Sx4'),(71,886,'Splash'),(71,887,'Kizashi'),(71,1010,'Tracker'),(71,1012,'Sidekick'),(71,1040,'celerio gl'),(72,888,'Samba'),(72,889,'Tagora'),(72,890,'Solara'),(72,891,'Horizon'),(73,892,'Telcosport'),(73,893,'Telco'),(73,894,'Sumo'),(73,895,'Safari'),(73,896,'Indica'),(73,897,'Indigo'),(73,898,'Grand Safari'),(73,899,'Tl Pick Up'),(73,900,'Xenon Pick Up'),(73,901,'Vista'),(73,902,'Xenon'),(73,903,'Aria'),(74,904,'Carina E'),(74,905,'4runner'),(74,906,'Camry'),(74,907,'Rav4'),(74,908,'Celica'),(74,909,'Supra'),(74,910,'Paseo'),(74,911,'Land Cruiser 80'),(74,912,'Land Cruiser 100'),(74,913,'Land Cruiser'),(74,914,'Land Cruiser 90'),(74,915,'Corolla'),(74,916,'Auris'),(74,917,'Avensis'),(74,918,'Picnic'),(74,919,'Yaris'),(74,920,'Yaris Verso'),(74,921,'Mr2'),(74,922,'Previa'),(74,923,'Prius'),(74,924,'Avensis Verso'),(74,925,'Corolla Verso'),(74,926,'Corolla Sedan'),(74,927,'Aygo'),(74,928,'Hilux'),(74,929,'Dyna'),(74,930,'Land Cruiser 200'),(74,931,'Verso'),(74,932,'Iq'),(74,933,'Urban Cruiser'),(74,934,'Gt86'),(74,1021,'tercel'),(74,1028,'ECHO'),(74,1035,'prado'),(75,935,'100'),(75,936,'121'),(76,937,'214'),(76,938,'110 Stawra'),(76,939,'111 Stawra'),(76,940,'215'),(76,941,'112 Stawra'),(77,942,'Passat'),(77,943,'Golf'),(77,944,'Vento'),(77,945,'Polo'),(77,946,'Corrado'),(77,947,'Sharan'),(77,948,'Lupo'),(77,949,'Bora'),(77,950,'Jetta'),(77,951,'New Beetle'),(77,952,'Phaeton'),(77,953,'Touareg'),(77,954,'Touran'),(77,955,'Multivan'),(77,956,'Caddy'),(77,957,'Golf Plus'),(77,958,'Fox'),(77,959,'Eos'),(77,960,'Caravelle'),(77,961,'Tiguan'),(77,962,'Transporter'),(77,963,'Lt'),(77,964,'Taro'),(77,965,'Crafter'),(77,966,'California'),(77,967,'Santana'),(77,968,'Scirocco'),(77,969,'Passat Cc'),(77,970,'Amarok'),(77,971,'Beetle'),(77,972,'Up'),(77,973,'Cc'),(77,1010,'Prueba'),(78,974,'440'),(78,975,'850'),(78,976,'S70'),(78,977,'V70'),(78,978,'V70 Classic'),(78,979,'940'),(78,980,'480'),(78,981,'460'),(78,982,'960'),(78,983,'S90'),(78,984,'V90'),(78,985,'Classic'),(78,986,'S40'),(78,987,'V40'),(78,988,'V50'),(78,989,'V70 Xc'),(78,990,'Xc70'),(78,991,'C70'),(78,992,'S80'),(78,993,'S60'),(78,994,'Xc90'),(78,995,'C30'),(78,996,'780'),(78,997,'760'),(78,998,'740'),(78,999,'240'),(78,1000,'360'),(78,1001,'340'),(78,1002,'Xc60'),(78,1003,'V60'),(78,1004,'V40 Cross Country'),(79,1005,'353'),(80,1025,'Tracker'),(80,1041,'metro'),(81,1033,'rich'),(81,1034,'rich')
 
 create table tipoProveedor(
-idTipoProveedoor int primary key,
+idTipoProveedor int primary key,
 tipoProveedor varchar(50))
 insert into tipoProveedor values (1,'Partes Nuevas'),(2,'Partes Usadas'),(3,'Partes Nuevas y Usadas'),(4,'Servicios')
 
@@ -117,11 +119,11 @@ idProvincia int,
 idCanton int,
 foreign key(idProvincia,idCanton) references Canton,
 direccion varchar(250),
-logo varbinary(max),
+logo varchar(500),
 email varchar(400)
 )
 INSERT INTO [dbo].[proveedor]([idProveedor],[tipoProveedor],[NombreProveedor],[cedula],[descripcion],[idProvincia],[idCanton],[direccion],[logo],email)
-     VALUES (1,4,'Taller LUJO','113870738','Reparacion de Vehículos',2,1,'75 mts al E, Iglesia Catolica, San Antonio del Tejar','tallerlujo@ice.co.cr')
+     VALUES (1,4,'Taller LUJO','113870738','Reparacion de Vehículos',2,1,'75 mts al E, Iglesia Catolica, San Antonio del Tejar',null,'tallerlujo@ice.co.cr')
 
 --alter table Proveedor add email varchar(400)
 
@@ -728,7 +730,7 @@ Create table telefonoProveedor (
 [idTipoTelefono] int Not Null references tipoTelefono,
 [telefono] varchar(50)  Not Null primary key([idProveedor],[telefono]),
 );
---Select * from telefonoProveedor
+insert into telefonoProveedor values (1,4,'2102-9090'),(1,1,'2440-6484'),(1,2,'8860-2745')
 
 Create table Imagenes (
 [id] int identity(1,1) Not Null primary key,
@@ -811,7 +813,7 @@ SELECT        dbo.Proveedor.NombreProveedor, dbo.tipoProveedor.tipoProveedor, db
 FROM            dbo.Canton INNER JOIN
                          dbo.Proveedor ON dbo.Canton.idProvincia = dbo.Proveedor.idProvincia AND dbo.Canton.idCanton = dbo.Proveedor.idCanton INNER JOIN
                          dbo.Provincia ON dbo.Canton.idProvincia = dbo.Provincia.idProvincia INNER JOIN
-                         dbo.tipoProveedor ON dbo.Proveedor.tipoProveedor = dbo.tipoProveedor.idTipoProveedoor
+                         dbo.tipoProveedor ON dbo.Proveedor.tipoProveedor = dbo.tipoProveedor.idTipoProveedor
 go
 
 create view vw_InfoCotizaciones
@@ -911,3 +913,14 @@ begin
 	values(@idCotizacion,@descripcion,@idMarca,@idModelo,@año,@otrosDatos,@idUsuario,@estado,@imagen)
 end
 go
+create view Vw_ListaProveedores
+as
+Select idProveedor,b.tipoProveedor,cedula,a.NombreProveedor,descripcion,c.Canton,d.provincia,a.direccion,email,a.logo,(Select concat(b.tipoTelefono,' - ',a.telefono,', ') from telefonoProveedor a inner join tipoTelefono b on a.idTipoTelefono=b.idTtipoTelefono for xml raw(''),elements)telefonos
+from Proveedor a 
+inner join tipoProveedor b on a.tipoProveedor=b.idTipoProveedor 
+inner join Canton c on a.idProvincia=c.idProvincia and a.idCanton=c.idCanton
+inner join Provincia d on c.idProvincia=d.idProvincia
+go
+Select idProveedor,tipoProveedor,cedula,NombreProveedor,descripcion,Canton,provincia,direccion,email,logo,telefonos from Vw_ListaProveedores
+
+Select concat(b.tipoTelefono,' - ',a.telefono,', ') from telefonoProveedor a inner join tipoTelefono b on a.idTipoTelefono=b.idTtipoTelefono for xml raw(''),elements

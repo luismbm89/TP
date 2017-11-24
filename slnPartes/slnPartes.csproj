@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="partes.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="Proveedores.aspx" />
     <Content Include="Proveedor\Proveedor.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -148,6 +149,13 @@
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Proveedor\Proveedor.aspx.cs">
       <DependentUpon>Proveedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

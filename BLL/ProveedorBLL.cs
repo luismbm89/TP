@@ -74,5 +74,18 @@ namespace BLL
                 throw;
             }
         }
+
+        public static DataTable ListaProveedores()
+        {
+            try
+            {
+                return ProveedorDAL.ListaProveedores();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

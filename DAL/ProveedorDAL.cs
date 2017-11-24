@@ -66,6 +66,33 @@ namespace DAL
             }
         }
 
+        public static DataTable ListaProveedores()
+        {
+            string oSql = "Select idProveedor,tipoProveedor,cedula,NombreProveedor,descripcion,Canton,provincia,direccion,email,logo,telefonos from Vw_ListaProveedores";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static DataTable ListaProveedores(int idProveedor)
+        {
+            string oSql = string.Format("Select idProveedor,tipoProveedor,cedula,descripcion,Canton,provincia,direccion,email,logo,telefonos from Vw_ListaProveedores where idProveedor={0}", idProveedor);
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static DataTable obtenerProveedor(int idProveedor)
         {
             string oSql = "SELECT [idProveedor],[tipoProveedor],[NombreProveedor],[cedula],[descripcion],[idProvincia],[idCanton],[direccion],[logo],[email] FROM [dbo].[Proveedor] where idProveedor = " + idProveedor;
