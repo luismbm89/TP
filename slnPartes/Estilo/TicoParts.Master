@@ -68,7 +68,7 @@
                             <li id="Inicio" runat="server"><a href="../index.aspx">Inicio</a></li>
                             <li id="Partes" runat="server"><a href="../partes.aspx">Partes</a></li>
                             <li id="Proveedores" runat="server"><a href="../Proveedores.aspx">Proveedores</a></li>
-                            <li id="Contactenos" runat="server"><a href="#">Contactenos</a></li>
+                            <li id="Contactenos" runat="server"><a href="../Contactenos.aspx">Contactenos</a></li>
                             <li id="Proveedor" runat="server"><a href="../Proveedor/Proveedor.aspx">Proveedor</a></li>
                             <li id="Administrador" runat="server"><a href="../administrador.aspx">Administrador</a></li>
                         </ul>

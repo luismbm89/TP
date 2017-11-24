@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="administrador.aspx" />
+    <Content Include="Contactenos.aspx" />
     <Content Include="Estilo\css\bootstrap-theme.css" />
     <Content Include="Estilo\css\bootstrap-theme.min.css" />
     <Content Include="Estilo\css\bootstrap.css" />
@@ -119,6 +120,13 @@
     </Compile>
     <Compile Include="administrador.aspx.designer.cs">
       <DependentUpon>administrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contactenos.aspx.cs">
+      <DependentUpon>Contactenos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contactenos.aspx.designer.cs">
+      <DependentUpon>Contactenos.aspx</DependentUpon>
     </Compile>
     <Compile Include="EnviarCorreo.cs" />
     <Compile Include="Estilo\TicoParts.Master.cs">
