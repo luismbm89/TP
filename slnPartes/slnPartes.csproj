@@ -108,6 +108,7 @@
     <Content Include="partes.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="Proveedores.aspx" />
+    <Content Include="Proveedor\Logo\lujo.png" />
     <Content Include="Proveedor\Proveedor.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

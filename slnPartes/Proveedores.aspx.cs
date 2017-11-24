@@ -44,6 +44,8 @@ namespace slnPartes
                 ltlMensaje.Visible = true;
             }
         }
+
+        
         
         private void llenarDtlParte()
         {
