@@ -23,6 +23,19 @@ namespace BLL
             }
         }
 
+        public static string Top10()
+        {
+            try
+            {
+                return ProveedorDAL.Top10();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static DataTable obtenerTelProveedor(int idProveedor)
         {
             try

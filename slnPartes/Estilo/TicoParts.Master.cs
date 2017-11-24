@@ -35,7 +35,7 @@ namespace slnPartes.Estilo
                         Proveedores.Visible = true;
                         Contactenos.Visible = true;
                         Proveedor.Visible = true;
-                            Administrador.Visible = false;
+                        Administrador.Visible = false;
                             break;
                     case "3"://Cliente
                         Inicio.Visible = true;
@@ -61,7 +61,9 @@ namespace slnPartes.Estilo
                 Proveedores.Visible = true;
                 Contactenos.Visible = true;
                 Proveedor.Visible = false;
-            }}
+                Administrador.Visible = false;
+                }
+            }
         }
 
         protected void IniciarSesion(object sender, EventArgs e)

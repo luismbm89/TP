@@ -52,6 +52,8 @@ drop view vw_InfoCotizaciones;end try begin catch end catch
 begin try
 drop view Vw_ListaProveedores;end try begin catch end catch
 begin try
+drop view Vw_Top10;end try begin catch end catch
+begin try
 drop Procedure sp_GuardarParte;end try begin catch end catch
 begin try
 drop Procedure sp_GuardarImagen;end try begin catch end catch
@@ -123,7 +125,7 @@ logo varchar(500),
 email varchar(400)
 )
 INSERT INTO [dbo].[proveedor]([idProveedor],[tipoProveedor],[NombreProveedor],[cedula],[descripcion],[idProvincia],[idCanton],[direccion],[logo],email)
-     VALUES (1,4,'Taller LUJO','113870738','Reparacion de Vehículos',2,1,'75 mts al E, Iglesia Catolica, San Antonio del Tejar',null,'tallerlujo@ice.co.cr')
+     VALUES (1,4,'Taller LUJO','113870738','Reparacion de Vehículos',2,1,'75 mts al E, Iglesia Catolica, San Antonio del Tejar','../Proveedor/Logo/lujo.png','tallerlujo@ice.co.cr')
 
 --alter table Proveedor add email varchar(400)
 
@@ -143,6 +145,7 @@ Proveedor int references Proveedor
 )
 
 Insert into Usuario values (1,'lbolanos',HASHBYTES('MD5','lbolanos'),'113870738','Luis Miguel','Bolaños','Mejias','luis.mbm89@gmail.com','882999979',1,1,1)
+Insert into Usuario values (2,'lmejias',HASHBYTES('MD5','lmejias'),'203890621','Maria Lorena','Mejias','Huertas','lmejias@gmail.com','88602745',3,1,null)
 
 create table listaParte(
 idParte int primary key,
@@ -924,3 +927,38 @@ go
 Select idProveedor,tipoProveedor,cedula,NombreProveedor,descripcion,Canton,provincia,direccion,email,logo,telefonos from Vw_ListaProveedores
 
 Select concat(b.tipoTelefono,' - ',a.telefono,', ') from telefonoProveedor a inner join tipoTelefono b on a.idTipoTelefono=b.idTtipoTelefono for xml raw(''),elements
+go
+create view Vw_Top10 as
+Select top 10 concat(case ROW_NUMBER() over(order by a.Total desc) 
+when 1 then '<div class="item active">' else '<div class="item">' 
+end,'<img src="',a.logo,'" alt="',a.NombreProveedor,'" style="width:100%;"/>','<div class="carousel-caption">','<h3 style="background-color:rgba(0,0,255,0.5);">Tel: ',(Select top 1 Telefono from TelefonoProveedor where idProveedor=a.idProveedor),'</h3>','<p style="background-color:rgba(0,0,255,0.5);">',a.Direccion,'</p>','</div>')[Div] from (
+Select a.NombreProveedor,count(c.NoSeq)Total,a.idProveedor,a.logo,a.direccion
+from Proveedor a left join Parte b on a.idProveedor=b.idProveedor left join ParteVehiculo c on b.idParte=c.idParte
+group by a.NombreProveedor,a.idProveedor,a.logo,a.direccion)a
+order by Total desc
+go
+Select * from Vw_Top10
+
+/*
+<div class="item active">
+        <img src="../Imagenes/Diseno/LUJO.png" alt="Taller Lujo" style="width:100%;"/>
+        <div class="carousel-caption">
+          <h3>Tel: 24406484</h3>
+          <p>San Antonio del Tejar, Alajuela</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="../Imagenes/Diseno/TP.png" alt="Ticoparts.co.cr" style="width:100%;"/>
+        <div class="carousel-caption">
+          <h3>Tel: 24406484</h3>
+          <p>San Antonio del Tejar, Alajuela</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="../Imagenes/Diseno/toyosan.png" alt="Toyosan" style="width:100%;"/>
+        <div class="carousel-caption">
+          <h3>Tel: 2440 1090</h3>
+          <p>Coyol, Alajuela</p>
+        </div>
+      </div>
+*/

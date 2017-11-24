@@ -12,29 +12,9 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" style=" width:85%">
-      <div class="item active">
-        <img src="../Imagenes/Diseno/LUJO.png" alt="Taller Lujo" style="width:100%;"/>
-        <div class="carousel-caption">
-          <h3>Tel: 24406484</h3>
-          <p>San Antonio del Tejar, Alajuela</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="../Imagenes/Diseno/TP.png" alt="Ticoparts.co.cr" style="width:100%;"/>
-        <div class="carousel-caption">
-          <h3>Tel: 24406484</h3>
-          <p>San Antonio del Tejar, Alajuela</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="../Imagenes/Diseno/toyosan.png" alt="Toyosan" style="width:100%;"/>
-        <div class="carousel-caption">
-          <h3>Tel: 2440 1090</h3>
-          <p>Coyol, Alajuela</p>
-        </div>
-      </div>
-  
+
+    <div class="carousel-inner" style=" width:85%;text-align:center">
+        <asp:Literal ID="ltImagenes" runat="server"></asp:Literal>
     </div>
 
     <!-- Left and right controls -->

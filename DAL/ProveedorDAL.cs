@@ -24,6 +24,20 @@ namespace DAL
             }
         }
 
+        public static string Top10()
+        {
+            string oSql = "Select * from Vw_Top10";
+            try
+            {
+                return ConexionDAO.getInstance().EjecutarSQLScalar(oSql);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static DataTable obtenerTelProveedor(int idProveedor)
         {
             string oSql = "select telefono from telefonoProveedor where idProveedor = " + idProveedor;
