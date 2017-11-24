@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TicoParts.master.cs" Inherits="slnPartes.Estilo.TicoParts" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var cambio = false;
+            $('.nav li a').each(function (index) {
+                if (this.href.trim() == window.location) {
+                    $(this).parent().addClass("active");
+                    cambio = true;
+                }
+            });
+            if (!cambio) {
+                $('.nav li:first').addClass("active");
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        function EjemploMetodo() {
+            $('#modalIniciar').modal('show');
+            document.getElementById('user').focus();
+        }
+    </script>
+    <title>TicoParts</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .fondo{
+            background-image: url(Imagenes/Diseno/tpFondo.png);
+            background-size:cover;
+            padding-top:60px;
+        }
+    </style>
+</head>
+<body class="fondo">
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">TicoParts.co.cr</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="../index.aspx">Inicio</a></li>
+                            <li><a href="../partes.aspx">Partes</a></li>
+                            <li><a href="#">Proveedores</a></li>
+                            <li><a href="#">Contactenos</a></li>
+                            <li><a href="../Proveedor/Proveedor.aspx">Proveedor</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a onclick="EjemploMetodo()"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="modal fade" id="modalIniciar" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Iniciar Sesión</h4>
+        </div>
+        <div class="modal-body">
+                <div class="form-group">
+                    <label for="email">Usuario:</label>
+                    <asp:TextBox type="email" class="form-control" id="user" runat="server"></asp:TextBox>
+                </div>
+                    <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <asp:TextBox type="password" class="form-control" id="pass" runat="server"></asp:TextBox>
+                </div>
+                <div class="checkbox">
+                     <label><input type="checkbox"/> Remember me</label>
+                </div>
+            <asp:Button type="submit" CssClass="btn btn-default" ID="btnIniciar" OnClick="IniciarSesion" runat="server" Text="Iniciar" />
+        </div>
+        <div class="modal-footer">
+          <asp:Button  type="button" class="btn btn-default" data-dismiss="modal" ID="btnCancelar" Text="Cerrar" runat="server" OnClick="btnCancelar_Click"/>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+    </form>
+</body>
+</html>
