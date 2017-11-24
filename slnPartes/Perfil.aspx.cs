@@ -26,7 +26,7 @@ namespace slnPartes
             user.Apellido21 = txtApellido2.Text;
             user.Contrasenna = txtClave.Text;
             user.Correo = txtCorreo.Text;
-            user.Identificacion = txtID.Text;
+            user.Identificacion1 = txtID.Text;
             user.IdUsuario = Convert.ToInt32(txtUsuario.ToolTip);
             user.Nombre = txtNombre.Text;
             user.Proveedor1 = Convert.ToInt32(Session["idProveedor"].ToString());

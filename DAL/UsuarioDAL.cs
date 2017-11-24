@@ -34,7 +34,7 @@ namespace DAL
         }
         public static int Actualizar(Usuario usuario)
         {
-            string osql = string.Format("Update a set Usuario = '{0}',[contrasenna]=case  when '{1}'='' then [contrasenna] else HASHBYTES('MD5','{1}') end ,[Identificacion] = '{2}',[Nombre] = '{3}',[Apellido1] = '{4}',[Apellido2] = '{5}',[correo] = '{6}',[Telefono] = '{7}' from Usuario a where idUsuario={8}", usuario.Usuario1,usuario.Contrasenna,usuario.Identificacion,usuario.Nombre,usuario.Apellido11,usuario.Apellido21,usuario.Correo,usuario.Telefono1,usuario.IdUsuario);
+            string osql = string.Format("Update a set Usuario = '{0}',[contrasenna]=case  when '{1}'='' then [contrasenna] else HASHBYTES('MD5','{1}') end ,[Identificacion] = '{2}',[Nombre] = '{3}',[Apellido1] = '{4}',[Apellido2] = '{5}',[correo] = '{6}',[Telefono] = '{7}' from Usuario a where idUsuario={8}", usuario.Usuario1,usuario.Contrasenna,usuario.Identificacion1,usuario.Nombre,usuario.Apellido11,usuario.Apellido21,usuario.Correo,usuario.Telefono1,usuario.IdUsuario);
             return (ConexionDAO.getInstance().EjecutarSqlActualizacion(osql));
         }
     }

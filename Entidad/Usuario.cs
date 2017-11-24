@@ -2,22 +2,89 @@
 {
     public class Usuario
     {
-        private int idUsuario,Rol,Proveedor;
-        string usuario, contrasenna, nombre, Apellido1, Apellido2, correo, Telefono,ID;
+        private int idUsuario, Rol, Proveedor;
+
+        public int Proveedor1
+        {
+            get { return Proveedor; }
+            set { Proveedor = value; }
+        }
+
+        public int Rol1
+        {
+            get { return Rol; }
+            set { Rol = value; }
+        }
+
+        public int IdUsuario
+        {
+            get { return idUsuario; }
+            set { idUsuario = value; }
+        }
+        string usuario, contrasenna, nombre, Apellido1, Apellido2, correo, Telefono, ID, Identificacion;
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+
+        public string Identificacion1
+        {
+            get { return Identificacion; }
+            set { Identificacion = value; }
+        }
+
+        public string ID1
+        {
+            get { return ID; }
+            set { ID = value; }
+        }
+
+        public string Telefono1
+        {
+            get { return Telefono; }
+            set { Telefono = value; }
+        }
+
+        public string Correo
+        {
+            get { return correo; }
+            set { correo = value; }
+        }
+
+        public string Apellido21
+        {
+            get { return Apellido2; }
+            set { Apellido2 = value; }
+        }
+
+        public string Apellido11
+        {
+            get { return Apellido1; }
+            set { Apellido1 = value; }
+        }
+
+        public string Contrasenna
+        {
+            get { return contrasenna; }
+            set { contrasenna = value; }
+        }
+
+        public string Usuario1
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
         bool Estado;
 
-        public int IdUsuario { get => idUsuario; set => idUsuario = value; }
-        public int Rol1 { get => Rol; set => Rol = value; }
-        public int Proveedor1 { get => Proveedor; set => Proveedor = value; }
-        public string Usuario1 { get => usuario; set => usuario = value; }
-        public string Contrasenna { get => contrasenna; set => contrasenna = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido11 { get => Apellido1; set => Apellido1 = value; }
-        public string Apellido21 { get => Apellido2; set => Apellido2 = value; }
-        public string Correo { get => correo; set => correo = value; }
-        public string Telefono1 { get => Telefono; set => Telefono = value; }
-        public bool Estado1 { get => Estado; set => Estado = value; }
-        public string Identificacion { get => ID; set => ID = value; }
+        public bool Estado1
+        {
+            get { return Estado; }
+            set { Estado = value; }
+        }
+
+        
 
         public Usuario()
         {
@@ -27,7 +94,7 @@
             Identificacion = "";
             Usuario1 = "";
             Contrasenna = "";
-            Nombre = "";
+            nombre = "";
             Apellido11 = "";
             Apellido21 = "";
             Correo = "";
