@@ -25,6 +25,7 @@ namespace DAO
             BaseDatos = "ticopartdb";
             */
 
+            //Prueba
             Usuario = "ticopartdb1";
             Clave = "Tb1Zy9xCU~g-"; //123456 - dbCai2017
             Servidor = "mssql5.gear.host";
