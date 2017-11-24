@@ -931,7 +931,7 @@ go
 create view Vw_Top10 as
 Select top 10 concat(case ROW_NUMBER() over(order by a.Total desc) 
 when 1 then '<div class="item active">' else '<div class="item">' 
-end,'<img src="',a.logo,'" alt="',a.NombreProveedor,'" style="width:100%;"/>','<div class="carousel-caption">','<h3 style="background-color:rgba(0,0,255,0.5);">Tel: ',(Select top 1 Telefono from TelefonoProveedor where idProveedor=a.idProveedor),'</h3>','<p style="background-color:rgba(0,0,255,0.5);">',a.Direccion,'</p>','</div>')[Div] from (
+end,'<img src="',a.logo,'" alt="',a.NombreProveedor,'" style="width:100%;"/>','<div class="carousel-caption">','<h3 style="background-color:rgba(0,0,255,0.7);">Tel: ',(Select top 1 Telefono from TelefonoProveedor where idProveedor=a.idProveedor),'</h3>','<p style="background-color:rgba(0,0,255,0.7);">',a.Direccion,'</p>','</div>')[Div] from (
 Select a.NombreProveedor,count(c.NoSeq)Total,a.idProveedor,a.logo,a.direccion
 from Proveedor a left join Parte b on a.idProveedor=b.idProveedor left join ParteVehiculo c on b.idParte=c.idParte
 group by a.NombreProveedor,a.idProveedor,a.logo,a.direccion)a
