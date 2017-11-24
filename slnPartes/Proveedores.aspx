@@ -64,6 +64,10 @@
                             <div class="panel-heading" style="background-color: #00507a; color: white;">Buscar</div>
                             <div class="panel-body">
                                 <div class="form-group">
+                                    <label>Tipo Servicio:</label>
+                                    <asp:DropDownList ID="ddlTS" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlTS_SelectedIndexChanged"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
                                     <label>Proveedor:</label>
                                     <asp:TextBox runat="server" ID="txtBuscarNombre" CssClass="form-control" />
                                 </div>
@@ -91,7 +95,7 @@
                                         <div class="form-group col-sm-2 text-center">
                                             <div class="panel panel-info">
                                                 <div class="panel-heading" style="background-color: #00507a; color: white;">
-                                                    <strong title="<%# DataBinder.Eval(Container.DataItem, "descripcion") %>"><%# DataBinder.Eval(Container.DataItem, "descripcion").ToString().Length <= 15 ? Eval("descripcion") : Eval("descripcion").ToString().Substring(0, 15)+"..." %></strong>
+                                                    <strong style="font-size:small" title="<%# DataBinder.Eval(Container.DataItem, "descripcion") %>"><%# DataBinder.Eval(Container.DataItem, "descripcion").ToString().Length <= 15 ? Eval("descripcion") : Eval("descripcion").ToString().Substring(0, 15)+"..." %></strong>
                                                 </div>
                                                 <div class="panel-body text-center">
                                                     <div class="thumbnail">

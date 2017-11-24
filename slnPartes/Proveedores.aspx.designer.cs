@@ -40,6 +40,24 @@ namespace slnPartes {
         protected global::System.Web.UI.WebControls.Literal ltlMensaje;
         
         /// <summary>
+        /// Control ddlTS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTS;
+        
+        /// <summary>
+        /// Control txtBuscarNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuscarNombre;
+        
+        /// <summary>
         /// Control ddlProvincia.
         /// </summary>
         /// <remarks>

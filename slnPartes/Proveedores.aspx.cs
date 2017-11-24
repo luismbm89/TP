@@ -110,18 +110,42 @@ namespace slnPartes
             int f1 = 0, f2 = 0, f3 = 0, f4 = 0, f5 = 0, f6 = 0;
             try
             {
-                DataView dv = new DataView(ProveedorBLL.ListaProveedores());                
+                DataView dv = new DataView(ProveedorBLL.ListaProveedores());
 
-                if (ddlProvincia.SelectedIndex > 0)
+                if (ddlTS.SelectedIndex > 0)
                 {
                     f4 = 1;
+                }
+                if (ddlProvincia.SelectedIndex > 0)
+                {
+                    f5 = 1;
                 }
                 if (ddlCanton.SelectedIndex > 0)
                 {
                     f6 = 1;
                 }
+                if (txtBuscarNombre.Text.Length > 0)
+                {
+                    f3 = 1;
+                }
                 StringBuilder filtro = new StringBuilder();
+                if (f3 > 0)
+                {
+                    if (filtro.Length > 0)
+                    {
+                        filtro.Append(" and ");
+                    }
+                    filtro.Append(String.Format("NombreProveedor like'%{0}%'", txtBuscarNombre.Text));
+                }
                 if (f4 > 0)
+                {
+                    if (filtro.Length > 0)
+                    {
+                        filtro.Append(" and ");
+                    }
+                    filtro.Append(String.Format("tipoProveedor like'%{0}%'", ddlTS.SelectedItem.Text));
+                }
+                if (f5 > 0)
                 {
                     if (filtro.Length > 0)
                     {
@@ -247,6 +271,11 @@ namespace slnPartes
         
 
         protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            aplicarFiltro();
+        }
+
+        protected void ddlTS_SelectedIndexChanged(object sender, EventArgs e)
         {
             aplicarFiltro();
         }
