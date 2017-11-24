@@ -68,7 +68,7 @@ namespace DAL
 
         public static DataTable obtenerProveedor(int idProveedor)
         {
-            string oSql = "SELECT [idProveedor],[tipoProveedor],[NombreProveedor],[cedula],[descripcion],[idProvincia],[idCanton],[direccion],[logo],[usuario],[email] FROM [dbo].[Proveedor] where idProveedor = " + idProveedor;
+            string oSql = "SELECT [idProveedor],[tipoProveedor],[NombreProveedor],[cedula],[descripcion],[idProvincia],[idCanton],[direccion],[logo],[email] FROM [dbo].[Proveedor] where idProveedor = " + idProveedor;
             try
             {
                 return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);

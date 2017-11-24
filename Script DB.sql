@@ -118,12 +118,10 @@ idCanton int,
 foreign key(idProvincia,idCanton) references Canton,
 direccion varchar(250),
 logo varbinary(max),
-usuario varchar(25),
 email varchar(400)
 )
-INSERT INTO [dbo].[proveedor]([idProveedor],[tipoProveedor],[NombreProveedor],[cedula],[descripcion],[idProvincia],[idCanton],[direccion],[logo],[usuario])
-     VALUES (1,1,'Rojas Motor','','Venta de Repuestos Nuevos',4,1,'Calle Ancha',null,'Jose'),
-(2,1,'Gigante','3-101-236313','Partes Nuevas',1,1,'450 m oeste de los Tribunales de Justicia, Calle Ancha',null,'Lorena'),(3,2,'Rojas Motor','','Repuestos Usados',4,1,'San Martin',null,''),(4,1,'Guacamaya','','Repuestos Nuevos y Usados',4,1,'Calle Ancha',null,''),(5,1,'Transmore','','Repuestos Varios',4,1,'Calle Ancha',null,''),(6,1,'Hyundai','','Repuestos para Hyundai',4,1,'Centro de Alajuela',null,''),(7,1,'Toyota','','Repuestos para Toyota',4,1,'Calle Ancha',null,''),(8,1,'Nissan','','Repuestos para Nissan',4,1,'Centro de Alajuela',null,''),(9,2,'Toyosan','','Repuestos Varios',4,1,'Autopista General Cañas',null,''),(10,1,'San Francisco','','Repuestos Nuevos',4,1,'Frente a la UTN',null,''),(11,1,'Repuestos El Coyol','','Repuestos Varios',4,1,'Coyol',null,'')
+INSERT INTO [dbo].[proveedor]([idProveedor],[tipoProveedor],[NombreProveedor],[cedula],[descripcion],[idProvincia],[idCanton],[direccion],[logo],email)
+     VALUES (1,4,'Taller LUJO','113870738','Reparacion de Vehículos',2,1,'75 mts al E, Iglesia Catolica, San Antonio del Tejar','tallerlujo@ice.co.cr')
 
 --alter table Proveedor add email varchar(400)
 
