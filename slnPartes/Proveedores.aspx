@@ -98,7 +98,7 @@
                                                         <img src="<%# DataBinder.Eval(Container.DataItem, "logo") %>" style="width: 100%;" onerror="this.src='Imagenes/Diseno/tpImagenOverlay.png';">
                                                     </div>
                                                     <hr style="color:black"/>
-                                                    <labe style="font-size:smaller"><%# DataBinder.Eval(Container.DataItem, "NombreProveedor") %></labe>
+                                                    <label><%# DataBinder.Eval(Container.DataItem, "NombreProveedor") %></label>
                                                     <br />
                                                     <label style="font-size:smaller"><%# DataBinder.Eval(Container.DataItem, "cedula","{0:c}") %></label>
                                                     <br />
