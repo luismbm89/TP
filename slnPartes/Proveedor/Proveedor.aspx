@@ -6,6 +6,25 @@
             $('#modalCotizacion').modal('show');
         }
     </script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <style>
+    
+    /* Media query for mobile viewport */
+    @media screen and (max-width: 400px) {
+        #paypal-button-container {
+            width: 100%;
+        }
+    }
+    
+    /* Media query for desktop viewport */
+    @media screen and (min-width: 400px) {
+        #paypal-button-container {
+            width: 250px;
+            display: inline-block;
+        }
+    }
+    
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -25,10 +44,11 @@
                                         <nav class="col-sm-3">
                                             <asp:Menu ID="Menu1" Width="168px" runat="server" OnMenuItemClick="Menu1_MenuItemClick">
                                                 <Items>
-                                                    <asp:MenuItem  Text="Empresa" Value="0"></asp:MenuItem>
+                                                    <asp:MenuItem Text="Empresa" Value="0"></asp:MenuItem>
                                                     <asp:MenuItem Text="Partes" Value="1"></asp:MenuItem>
                                                     <asp:MenuItem Text="Cotizaciones" Value="2"></asp:MenuItem>
                                                     <asp:MenuItem Text="Registro Usuario" Value="3"></asp:MenuItem>
+                                                    <asp:MenuItem Text="Facturacion" Value="4"></asp:MenuItem>
                                                 </Items>
                                                 <StaticMenuItemStyle CssClass="nav nav-pills nav-stacked" />
                                                 <StaticMenuStyle CssClass="nav nav-pills nav-stacked" />
@@ -313,7 +333,7 @@
 
                                 </div>
                             </asp:View>
-                            <!-- View Mensajes -->
+                            <!-- View Cotizaciones -->
                             <asp:View ID="tabMensajes" runat="server">
                                 <div class="panel panel-default">
                                     <div class="panel-heading" style="background-color: #00507a; color: white;">Cotizaciones</div>
@@ -337,7 +357,7 @@
                                                                         CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ControlStyle-CssClass="btn btn-sm btn-primary" />
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            
+
                                                         </Columns>
                                                     </asp:GridView>
                                                 </div>
@@ -346,23 +366,74 @@
                                     </div>
                                 </div>
                             </asp:View>
+                            <!-- View Usuarios -->
                             <asp:View ID="tabUsuarios" runat="server">
                                 <div class="panel panel-default">
                                     <div class="panel-heading" style="background-color: #00507a; color: white;">Registro de Usuarios</div>
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <label>Dirección:</label>
-                                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
+
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Dirección:</label>
+                                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </asp:View>
+                            <!-- View Facturación -->
+                            <asp:View ID="tabFacturacion" runat="server">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="background-color: #00507a; color: white;">Facturacion</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div id="paypal-button"></div>
+
+                                            <script>
+                                                paypal.Button.render({
+
+                                                    env: 'production', // Or 'sandbox',
+
+                                                    commit: true, // Show a 'Pay Now' button
+
+                                                    style: {
+                                                        color: 'gold',
+                                                        size: 'small'
+                                                    },
+
+                                                    payment: function (data, actions) {
+                                                        /* 
+                                                         * Set up the payment here 
+                                                         */
+                                                    },
+
+                                                    onAuthorize: function (data, actions) {
+                                                        /* 
+                                                         * Execute the payment here 
+                                                         */
+                                                    },
+
+                                                    onCancel: function (data, actions) {
+                                                        /* 
+                                                         * Buyer cancelled the payment 
+                                                         */
+                                                    },
+
+                                                    onError: function (err) {
+                                                        /* 
+                                                         * An error occurred during the transaction 
+                                                         */
+                                                    }
+
+                                                }, '#paypal-button');
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
                             </asp:View>
                         </asp:MultiView>
                     </div>

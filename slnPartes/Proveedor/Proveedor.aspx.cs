@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using PayPal;
 
 namespace slnPartes.Proveedor
 {
@@ -137,6 +138,8 @@ namespace slnPartes.Proveedor
                     break;
                 case 2: //Cotizaciones
                     llenarTablaCotizaciones();
+                    break;
+                case 3:
                     break;
                 default:
                     break;
@@ -876,7 +879,11 @@ namespace slnPartes.Proveedor
             Response.Redirect("../Proveedor/Proveedor.aspx?id=2");
         }
 
-
+        private void PagarMes()
+        {
+            Dictionary<string, string> config = PayPal.Api.ConfigManager.Instance.GetProperties();
+            
+        }
 
 
     }
