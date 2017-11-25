@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Proveedor:</label>
-                                    <asp:TextBox runat="server" ID="txtBuscarNombre" CssClass="form-control" />
+                                    <asp:TextBox AutoPostBack="true" OnTextChanged="txtBuscarNombre_TextChanged" runat="server" ID="txtBuscarNombre" CssClass="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label>Provincia:</label>

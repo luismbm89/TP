@@ -75,6 +75,11 @@ namespace BLL
             }
         }
 
+        public static object obtenerTipoServicio()
+        {
+            throw new NotImplementedException();
+        }
+
         public static DataTable obtenerProveedor(int idProveedor)
         {
             try

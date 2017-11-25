@@ -54,7 +54,7 @@ namespace DAL
 
         public static DataTable obtenetTipoProveedor()
         {
-            string oSql = "select idTipoProveedoor,tipoProveedor from tipoProveedor";
+            string oSql = "select idTipoProveedor,tipoProveedor from tipoProveedor";
             try
             {
                 return ConexionDAO.getInstance().EjecutarConsultaDataTable(oSql);

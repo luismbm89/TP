@@ -20,6 +20,7 @@ namespace slnPartes
             {
                 llenarComboProvincia();
                 llenarDtlParte();
+                llenarComboTS();
             }
         }
 
@@ -35,10 +36,10 @@ namespace slnPartes
                 ddlProvincia.Items.Insert(0, "-- Todas --");
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 string disennoMensajeI = "<div class='alert alert-warning alert - dismissable fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
-                string mensaje = "Error al cargar las Provincias";
+                string mensaje = ex.Message;
                 string disennoMensajeF = "</div>";
                 ltlMensaje.Text = disennoMensajeI + mensaje + disennoMensajeF;
                 ltlMensaje.Visible = true;
@@ -50,16 +51,16 @@ namespace slnPartes
             {
                 ddlTS.Items.Clear();
                 ddlTS.DataSource = ProveedorBLL.obtenerTipoProveedor();
-                ddlTS.DataTextField = "provincia";
-                ddlTS.DataValueField = "idProvincia";
+                ddlTS.DataTextField = "tipoProveedor";
+                ddlTS.DataValueField = "idTipoProveedor";
                 ddlTS.DataBind();
                 ddlTS.Items.Insert(0, "-- Todas --");
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 string disennoMensajeI = "<div class='alert alert-warning alert - dismissable fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
-                string mensaje = "Error al cargar las Provincias";
+                string mensaje = ex.Message;
                 string disennoMensajeF = "</div>";
                 ltlMensaje.Text = disennoMensajeI + mensaje + disennoMensajeF;
                 ltlMensaje.Visible = true;
@@ -297,6 +298,11 @@ namespace slnPartes
         }
 
         protected void ddlTS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            aplicarFiltro();
+        }
+
+        protected void txtBuscarNombre_TextChanged(object sender, EventArgs e)
         {
             aplicarFiltro();
         }
