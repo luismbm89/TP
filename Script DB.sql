@@ -962,3 +962,5 @@ Select * from Vw_Top10
         </div>
       </div>
 */
+
+Select * from TipoProveedor
