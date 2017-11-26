@@ -42,12 +42,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\PayPal-SDK-v1.9.1-net451\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PayPal">
-      <HintPath>..\..\..\..\Downloads\PayPal-SDK-v1.9.1-net451\PayPal.dll</HintPath>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -97,6 +96,7 @@
     <Content Include="Estilo\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Estilo\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Estilo\TicoParts.Master" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\ticoparts1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ticoparts1 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Estilo/TicoParts.Master" AutoEventWireup="true" CodeBehind="Proveedor.aspx.cs" Inherits="slnPartes.Proveedor.Proveedor" %>
+﻿                                                                    
+<%@ Page Title="" Language="C#" MasterPageFile="~/Estilo/TicoParts.Master" AutoEventWireup="true" CodeBehind="Proveedor.aspx.cs" Inherits="slnPartes.Proveedor.Proveedor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
