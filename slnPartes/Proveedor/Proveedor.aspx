@@ -7,24 +7,64 @@
         }
     </script>
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script>
+        paypal.Button.render({
+
+            env: 'sandbox', // sandbox | production
+
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            client: {
+                sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+                production: '<insert production client id>'
+            },
+
+            // Show the buyer a 'Pay Now' button in the checkout flow
+            commit: true,
+
+            // payment() is called when the button is clicked
+            payment: function (data, actions) {
+
+                // Make a call to the REST api to create the payment
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: '10000', currency: 'CRC' }
+                            }
+                        ]
+                    }
+                });
+            },
+
+            // onAuthorize() is called when the buyer approves the payment
+            onAuthorize: function (data, actions) {
+
+                // Make a call to the REST api to execute the payment
+                return actions.payment.execute().then(function () {
+                    window.alert('Payment Complete!');
+                });
+            }
+
+        }, '#paypal-button-container');
+
+    </script>
     <style>
-    
-    /* Media query for mobile viewport */
-    @media screen and (max-width: 400px) {
-        #paypal-button-container {
-            width: 100%;
+        /* Media query for mobile viewport */
+        @media screen and (max-width: 400px) {
+            #paypal-button-container {
+                width: 100%;
+            }
         }
-    }
-    
-    /* Media query for desktop viewport */
-    @media screen and (min-width: 400px) {
-        #paypal-button-container {
-            width: 250px;
-            display: inline-block;
+
+        /* Media query for desktop viewport */
+        @media screen and (min-width: 400px) {
+            #paypal-button-container {
+                width: 250px;
+                display: inline-block;
+            }
         }
-    }
-    
-</style>
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -55,6 +95,7 @@
                                                 <StaticSelectedStyle CssClass="active" BackColor="#710002" ForeColor="WhiteSmoke" />
                                             </asp:Menu>
                                         </nav>
+                                        <div id="paypal-button-container"></div>
                                     </div>
                                 </div>
                             </div>
@@ -390,48 +431,9 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading" style="background-color: #00507a; color: white;">Facturacion</div>
                                     <div class="panel-body">
-                                        <div class="row">
-                                            <div id="paypal-button"></div>
+                                        
 
-                                            <script>
-                                                paypal.Button.render({
-
-                                                    env: 'production', // Or 'sandbox',
-
-                                                    commit: true, // Show a 'Pay Now' button
-
-                                                    style: {
-                                                        color: 'gold',
-                                                        size: 'small'
-                                                    },
-
-                                                    payment: function (data, actions) {
-                                                        /* 
-                                                         * Set up the payment here 
-                                                         */
-                                                    },
-
-                                                    onAuthorize: function (data, actions) {
-                                                        /* 
-                                                         * Execute the payment here 
-                                                         */
-                                                    },
-
-                                                    onCancel: function (data, actions) {
-                                                        /* 
-                                                         * Buyer cancelled the payment 
-                                                         */
-                                                    },
-
-                                                    onError: function (err) {
-                                                        /* 
-                                                         * An error occurred during the transaction 
-                                                         */
-                                                    }
-
-                                                }, '#paypal-button');
-                                            </script>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </asp:View>

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="administrador.aspx" />
+    <Content Include="Cliente\Cliente.aspx" />
     <Content Include="Contactenos.aspx" />
     <Content Include="Estilo\css\bootstrap-theme.css" />
     <Content Include="Estilo\css\bootstrap-theme.min.css" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="administrador.aspx.designer.cs">
       <DependentUpon>administrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Cliente.aspx.cs">
+      <DependentUpon>Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\Cliente.aspx.designer.cs">
+      <DependentUpon>Cliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contactenos.aspx.cs">
       <DependentUpon>Contactenos.aspx</DependentUpon>
@@ -174,7 +182,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Cliente\" />
     <Folder Include="Imagenes\Clientes\" />
   </ItemGroup>
   <ItemGroup>

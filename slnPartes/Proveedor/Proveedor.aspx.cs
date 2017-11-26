@@ -695,7 +695,7 @@ namespace slnPartes.Proveedor
             {
                 ddlTipoProveedor.DataSource = ProveedorBLL.obtenerTipoProveedor();
                 ddlTipoProveedor.DataTextField = "tipoProveedor";
-                ddlTipoProveedor.DataValueField = "idTipoProveedoor";
+                ddlTipoProveedor.DataValueField = "idTipoProveedor";
                 ddlTipoProveedor.DataBind();
                 ddlTipoProveedor.Items.Insert(0, "Seleccione un Tipo Proveedor");
             }
