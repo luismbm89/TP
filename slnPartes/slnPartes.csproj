@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dropbox.Api, Version=4.0.0.0, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.4.6.0\lib\net45\Dropbox.Api.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -112,6 +115,7 @@
     <Content Include="Proveedores.aspx" />
     <Content Include="Proveedor\Logo\lujo.png" />
     <Content Include="Proveedor\Proveedor.aspx" />
+    <Content Include="PruebaDropBox.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +183,13 @@
     </Compile>
     <Compile Include="Proveedor\Proveedor.aspx.designer.cs">
       <DependentUpon>Proveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaDropBox.aspx.cs">
+      <DependentUpon>PruebaDropBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PruebaDropBox.aspx.designer.cs">
+      <DependentUpon>PruebaDropBox.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
